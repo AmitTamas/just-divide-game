@@ -1,16 +1,104 @@
-# React + Vite
+# README.md
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+````md
+# Just Divide 🎮
 
-Currently, two official plugins are available:
+Just Divide is a browser-based puzzle strategy game built with React and Vite.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Place numbered tiles on a 4x4 board and use division / matching rules to clear space, gain points, level up, and survive as long as possible.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 🎯 Unique divide / merge puzzle mechanics
+- 🧩 4x4 strategy board gameplay
+- 🖱️ Drag and drop tile placement
+- 💾 Auto save / load using LocalStorage
+- 🏆 Best score tracking
+- ⏱️ Live timer
+- ⏸️ Pause / Resume system
+- ↩️ Undo moves
+- 💡 Hint system
+- 🗑️ Trash unwanted tiles
+- 📈 Level progression
+- 🎨 Polished custom game UI
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Built With
+
+- React
+- JavaScript (ES6+)
+- CSS3
+- Vite
+
+---
+
+## 📦 Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/AmitTamas/just-divide-game.git
+cd just-divide
+````
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run development server:
+
+```bash
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+---
+
+## 📸 Preview
+
+![Just dive Screenshoot](https://github.com/AmitTamas/just-divide-game/blob/309d4174aa96ad229e2af572d269d4e175759b66/Screenshot%20From%202026-04-25%2017-10-01.png)
+![Just dive screenshoot](https://github.com/AmitTamas/just-divide-game/blob/309d4174aa96ad229e2af572d269d4e175759b66/Screenshot%20From%202026-04-25%2017-12-30.png)
+
+
+---
+
+## 🧠 Gameplay Goal
+
+Use the current tile queue strategically:
+
+* Equal adjacent tiles remove each other
+* Divisible neighboring tiles divide into smaller values
+* Manage board space carefully
+* Use Keep / Trash / Hint wisely
+* Reach higher score and levels
+
+---
+
+## 📁 Project Structure
+
+```text
+src/
+assets/
+App.jsx
+index.css
+package.json
+README.md
+```
+
+---
+
+## 👤 Author
+
+Amit
+GitHub: https://github.com/AmitTamas
+
