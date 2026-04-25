@@ -298,9 +298,11 @@ body {
 
 /* ── Panel ──────────────────────────────────── */
 .panel {
-  margin-top: 112px;
+  outline: 6px solid orange;
+  margin-top: 120px;
+  margin-left: 40px;
   width: 120px;
-  min-height: 520px;
+  min-height: 500px;
   background: linear-gradient(to bottom, #f8c74d, #e89d2c);
   border-radius: 30px;
   padding: 16px 10px;
@@ -308,11 +310,11 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  /* overflow: hidden; ✅ stop queue bleeding out */
 }
 
 /* Keep zone */
 .keep-zone {
-  background: #2ecfb3;
   width: 110px;
   border-radius: 12px;
   padding: 8px;
@@ -321,18 +323,20 @@ body {
   align-items: center;
   gap: 4px;
   cursor: pointer;
+  background: transparent; /* ✅ remove teal bg */
 }
 
 .keep-slot {
   position: relative;
   width: 90px;
-  height: 68px;
-  background: rgba(255, 255, 255, 0.2);
+  height: 90px;
   border-radius: 10px;
-  border: 3px dashed rgba(255, 255, 255, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url('assets/blue.png'); /* ✅ blue tile as bg */
+  background-size: cover;
+  background-position: center;
 }
 
 .keep-slot img {
@@ -351,22 +355,35 @@ body {
 }
 
 .keep-label {
-  color: white;
+  color: rgb(13, 156, 56);
   font-weight: bold;
-  font-size: 14px;
+  font-size: large;
 }
 
 /* Queue — vertical 3 tiles */
 .queue {
+  z-index: 5;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 6px;
-  width: 100%;
-  background: rgba(255,255,255,0.15);
-  border-radius: 12px;
-  padding: 8px 4px;
-  outline: 3px solid rgba(255,255,255,0.4);
+  justify-content: space-evenly;
+  gap: 4px;
+  background: rgba(211, 211, 211, 0.836);
+  border-radius: 8px;
+  /* padding: 8px; */
+  outline: 6px solid rgba(255, 255, 255, 0.897);
+  width: 320px;   
+  height: 110px;    /* ✅ wider than panel — intentional overflow */
+  margin: 0 -30px;    /* ✅ bleed out both sides */
+}
+
+.tile.queue-tile {
+  position: relative;
+  background: transparent;
+  flex-shrink: 0;
+  overflow: visible;
+  width: 100px;   /* ✅ same proportion as grid tiles */
+  height: 100px;
 }
 
 .tile {
@@ -382,22 +399,12 @@ body {
   cursor: pointer;
 }
 
-.tile.queue-tile {
-  position: relative;
-  background: transparent;
-  border-radius: 0;
-  flex-shrink: 0;
-  overflow: visible;
-  width: 100px;
-  height: 62px;
-}
-
 .queue-tile-img {
   object-fit: contain;
   display: block;
   pointer-events: none;
-  width: 100%;
-  height: 100%;
+  width: 100px;
+  height: 100px;
 }
 
 .queue-tile span {
@@ -407,7 +414,7 @@ body {
   justify-content: center;
   align-items: center;
   color: white;
-  font-size: 26px;
+  font-size: 22px;
   font-weight: bold;
   pointer-events: none;
 }
@@ -453,15 +460,13 @@ body {
 
 .special-tile {
   position: relative;
-  width: 80px;
-  height: 64px;
 }
 
 .special-tile img {
   object-fit: contain;
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 100px;
+  height: 100px;
 }
 
 .special-tile span {
