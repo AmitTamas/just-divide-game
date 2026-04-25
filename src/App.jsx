@@ -145,23 +145,9 @@ function App() {
     setQueue((prev) => [...prev.slice(1), getRandomTile()]);
     setSelectedTile(null);
 
-    const isFull = newGrid.every((cell) => cell !== null);
-    if (isFull) {
-      const hasValidMerge = newGrid.some((val, idx) => {
-        if (val === null) return false;
-        return getNeighbors(idx).some((n) => {
-          const nval = newGrid[n];
-          if (nval === null) return false;
-          if (nval === val) return true;
-          const larger  = Math.max(val, nval);
-          const smaller = Math.min(val, nval);
-          return larger % smaller === 0;
-        });
-      });
-      if (!hasValidMerge) {
-        setGameOver(true);
-        localStorage.removeItem("gameState");
-      }
+    if (newGrid.every((cell) => cell !== null)) {
+      setGameOver(true);
+      localStorage.removeItem("gameState");
     }
   }
 
