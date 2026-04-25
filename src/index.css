@@ -302,7 +302,7 @@ body {
   margin-top: 120px;
   margin-left: 40px;
   width: 120px;
-  min-height: 500px;
+  height: 500px;
   background: linear-gradient(to bottom, #f8c74d, #e89d2c);
   border-radius: 30px;
   padding: 16px 10px;
@@ -550,62 +550,107 @@ body {
 .score-screen button:hover { background: #097a86; }
 
 /* ── Responsive ─────────────────────────────── */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
+  .app {
+    background-image: url('assets/Potraite_JustDivide_Game_2.png') !important;
+    padding: 10px;
+  }
+
+  .title-wrap h1 { font-size: 22px; }
+  .subtitle { font-size: 9px; letter-spacing: 0; }
+  .timer { font-size: 15px; }
+  .corner-btn { width: 36px; height: 36px; font-size: 13px; }
+  .hint-q { width: 18px; height: 18px; font-size: 13px; }
+  .hint-count { font-size: 9px; }
+  .undo-btn { font-size: 11px; padding: 5px 10px; }
+
   .game-layout {
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 12px;
+    margin-top: 8px;
   }
 
+  /* ── Board ── */
+  .board-side { width: 100%; align-items: center; }
+  .cat-img { width: 260px !important; }
+  .cat-zone {
+    width: 260px; height: 90px;
+    margin-top: -60px; margin-bottom: -35px;
+  }
+  .badge-wrap { width: 90px; height: 40px; }
+  .badge-wrap span { font-size: 12px; }
+  .badge-img { height: 44px; }
+  .left-badge  { left: -4px; top: 48px; }
+  .right-badge { right: -4px; top: 48px; }
+  .board-frame { padding: 6px; padding-top: 55px; border-radius: 12px; }
+  .grid { grid-template-columns: repeat(4, 60px); gap: 6px; }
+  .cell { width: 60px; height: 60px; }
+  .tile-on-board span { font-size: 18px; }
+
+  /* ── Panel — full width horizontal bar ── */
   .panel {
-    margin-top: 0;
-    flex-direction: row;
+    margin-top: 20px;
+    margin-right: 40px;
+    display: flex;
+    height: 150px;
+    max-width: 650px;
     width: 100%;
-    min-height: unset;
-    border-radius: 20px;
-    padding: 12px 16px;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
   }
 
+  /* Keep — same size as queue tiles */
+  .keep-zone {
+    gap: 3px;
+    border-radius: 10px;
+  }
+  .keep-slot {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+  }
+  .keep-slot span { font-size: 20px; }
+  .keep-label { font-size: larger; position: absolute; margin-top: 100px;}
+
+  /* Queue — horizontal, tiles same size as keep/trash */
   .queue {
     flex-direction: row;
-    width: auto;
-    padding: 6px;
+    margin: 4px;
+    /* width: auto; */
+    padding: 4px;
+    gap: 4px;
+    justify-content: space-around;
+    align-items: center;
+    background: rgba(200,200,200,0.4);
+    border-radius: 12px;
+    outline: 6px solid rgba(255,255,255,0.6);
   }
 
-  .cat-img {
-    width: 90% !important;
-    max-width: 400px;
+  .tile.queue-tile {
+    width: 100px;                /* ✅ same as keep/trash */
+    height: 100px;
+    overflow: visible;
   }
 
-  .cat-zone {
-    width: 90%;
-    max-width: 400px;
+  .queue-tile span { font-size: 20px; }
+
+  /* Trash — same size as keep/queue tiles */
+  .trash-zone { gap: 3px; }
+  .trash-label { font-size: larger;position: absolute; margin-top: 98px; }
+  .special-tile {
+    width: 100px;
+    height: 100px;
   }
-
-  .grid {
-    grid-template-columns: repeat(4, 70px);
-    gap: 8px;
-  }
-
-  .cell { width: 70px; height: 70px; }
-
-  .tile-on-board span { font-size: 22px; }
-
-  .board-frame { padding: 10px; padding-top: 80px; }
-
-  .title-wrap h1 { font-size: 30px; }
-  .subtitle { font-size: 12px; }
 }
 
-@media (max-width: 500px) {
-  .grid {
-    grid-template-columns: repeat(4, 56px);
-    gap: 6px;
-  }
-
-  .cell { width: 56px; height: 56px; }
-  .tile-on-board span { font-size: 18px; }
-  .badge-wrap span { font-size: 16px; }
-  .title-wrap h1 { font-size: 24px; }
+@media (max-width: 380px) {
+  .grid { grid-template-columns: repeat(4, 50px); gap: 5px; }
+  .cell { width: 50px; height: 50px; }
+  .cat-img { width: 210px !important; }
+  .cat-zone { width: 210px; }
+  .tile.queue-tile { width: 52px; height: 52px; }
+  .keep-slot { width: 52px; height: 52px; }
+  .special-tile { width: 52px; height: 52px; }
 }
